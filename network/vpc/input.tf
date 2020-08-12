@@ -18,3 +18,9 @@ variable "delete_routes" {
 	description = "Delete optional routes on create"
 	default = false 
 }
+
+variable "shared" {
+	description = "Define the vpc as a shared"
+	type = bool
+	default = false
+}
