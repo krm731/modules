@@ -2,6 +2,7 @@ resource "google_sql_database_instance" "instance" {
 	provider            = google-beta
   name                = var.instance_name
 	project             = var.project.project_id
+	region              = var.region
   database_version    = "POSTGRES_11"
   encryption_key_name = var.encryption_key_name
 

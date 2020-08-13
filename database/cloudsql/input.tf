@@ -6,6 +6,11 @@ variable "network" {
 	description = "The VPC network to create the database in"
 }
 
+variable "region" {
+	description = "The region to create the database in"
+	type        = string
+}
+
 variable "instance_name" {
 	description = "The name of the database instance" 
 	type        = string
