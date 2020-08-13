@@ -28,7 +28,7 @@ variable "purpose" {
 variable "algorithm" {
 	description = "The algorithm to use for encryption/decryption"
 	type        = string
-	default     = "Who cares?"
+	default     = "GOOGLE_SYMMETRIC_ENCRYPTION"
 }
 
 variable "protection_level" {
