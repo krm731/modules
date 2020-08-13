@@ -62,5 +62,5 @@ variable "autoscaling_config" {
 
 variable "gke_version" {
 	description = "gke version"
-  default= "1.14.10-gke.36"
+  default= "1.15.12-gke.2"
 }
