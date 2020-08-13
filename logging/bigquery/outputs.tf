@@ -34,6 +34,11 @@ output "resource_id" {
   value       = google_bigquery_dataset.dataset.id
 }
 
+output "dataset_id" {
+  description = "The dataset id for the destination bigquery dataset"
+  value       = google_bigquery_dataset.dataset.dataset_id
+}
+
 output "self_link" {
   description = "The self_link URI for the destination bigquery dataset"
   value       = google_bigquery_dataset.dataset.self_link
