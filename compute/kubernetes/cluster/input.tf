@@ -67,3 +67,38 @@ variable "maintenance_start_time" {
 	description = "The start time for maintenance of the cluster"
 	default = "02:00"
 }
+
+variable "isprivatecluster" {
+	type = bool
+	description = "Private cluster"
+	default = true
+}
+
+variable "environment" {
+	type = string
+	description = "Environment type"
+	default = "develop"
+}
+
+variable "master_ipv4_cidr_block"{
+	type = string
+	description = "Master ipv4 CIDR block"
+	default = "172.16.0.32/28"
+}
+
+variable "cluster_secondary_range_name" {
+  description = "The name of the secondary range within the subnetwork for the cluster to use"
+  default = "10.10.11.0/24"
+}
+
+variable "network_policy" {
+  type        = bool
+  description = "Enable network policy addon"
+  default     = true
+}
+
+variable "network_policy_provider" {
+  type        = string
+  description = "The network policy provider."
+  default     = "CALICO"
+}
