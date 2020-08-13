@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-variable "project_id" {
-  description = "The project ID to create the resources in."
-  type        = string
-}
-variable "cloud_armor" {
-  description = "Cloud armor   policy coinfugation"
-  type        = map
+terraform {
+  required_version = ">= 0.12.20"
+  required_providers {
+    google      = "~> 3.10"
+    google-beta = "~> 3.20"
+  }
 }

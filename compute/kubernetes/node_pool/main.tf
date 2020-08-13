@@ -1,16 +1,16 @@
 resource "google_container_node_pool" "node_pool" {
 
-	project    = var.project.project_id
-  name       = var.name
-  location   = var.location
-  cluster    = var.cluster.name
+  project  = var.project.project_id
+  name     = var.name
+  location = var.location
+  cluster  = var.cluster.name
   //node_count = var.node_count
 
   initial_node_count = var.initial_node_count
   //max_pods_per_node  = var.max_pods_per_node
-  node_count         = var.autoscaling_config == null ? var.node_count : null
-  node_locations     = var.node_locations
-  version            = var.gke_version
+  node_count     = var.autoscaling_config == null ? var.node_count : null
+  node_locations = var.node_locations
+  version        = var.gke_version
 
 
   autoscaling {

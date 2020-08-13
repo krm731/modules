@@ -1,13 +1,13 @@
 resource "google_container_cluster" "cluster" {
-	project                     = var.project.project_id
-  name                        = var.name
-	description                 = var.description
-  location                    = var.location
-  node_locations           		= length(var.node_locations) == 0 ? null : var.node_locations
-  network                  		= var.network.self_link
-  subnetwork               		= var.subnetwork.name
+  project        = var.project.project_id
+  name           = var.name
+  description    = var.description
+  location       = var.location
+  node_locations = length(var.node_locations) == 0 ? null : var.node_locations
+  network        = var.network.self_link
+  subnetwork     = var.subnetwork.name
 
-/*
+  /*
   min_master_version          = var.min_master_version
   logging_service             = var.logging_service
   monitoring_service          = var.monitoring_service
@@ -19,38 +19,38 @@ resource "google_container_cluster" "cluster" {
   enable_tpu                  = var.enable_tpu
 */
 
-	remove_default_node_pool = true
+  remove_default_node_pool = true
   initial_node_count       = var.initial_node_count
 
   node_config {} // default node_pool removed by default
 
   addons_config {
-		http_load_balancing {
-      disabled = !var.http_load_balancing
+    http_load_balancing {
+      disabled = ! var.http_load_balancing
     }
 
     horizontal_pod_autoscaling {
-      disabled = !var.horizontal_pod_autoscaling
+      disabled = ! var.horizontal_pod_autoscaling
     }
 
     network_policy_config {
-      disabled = !var.network_policy_config
+      disabled = ! var.network_policy_config
     }
   }
 
   master_auth {
-   client_certificate_config {
+    client_certificate_config {
       issue_client_certificate = false
     }
   }
 
-	maintenance_policy {
-		daily_maintenance_window {
-			start_time = var.maintenance_start_time
-		}
-	}
+  maintenance_policy {
+    daily_maintenance_window {
+      start_time = var.maintenance_start_time
+    }
+  }
 
-/*
+  /*
   ip_allocation_policy {
     cluster_secondary_range_name  = var.secondary_range_pods
     services_secondary_range_name = var.secondary_range_services
