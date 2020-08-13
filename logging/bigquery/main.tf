@@ -29,18 +29,20 @@ locals {
 #----------------#
 # API activation #
 #----------------#
+/*
 resource "google_project_service" "enable_destination_api" {
   project            = var.project_id
   service            = "bigquery.googleapis.com"
   disable_on_destroy = false
 }
+*/
 
 #------------------#
 # Bigquery dataset #
 #------------------#
 resource "google_bigquery_dataset" "dataset" {
   dataset_id                  = var.dataset_name
-  project                     = google_project_service.enable_destination_api.project
+  project                     = var.project_id
   location                    = var.location
   description                 = var.description
   delete_contents_on_destroy  = var.delete_contents_on_destroy
