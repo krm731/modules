@@ -6,7 +6,6 @@ variable "keyring" {
 	description = "The keyring to create the key in"
 }
 
-
 variable "name" {
 	description = "The name of the encryption key"
 	type        = string
