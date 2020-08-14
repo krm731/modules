@@ -73,7 +73,7 @@ variable "router_asn" {
   description = "Router ASN used for auto-created router."
   type        = number
   //default     = 64514
-  default     = 64515
+  default = 64515
 }
 
 variable "router_create" {

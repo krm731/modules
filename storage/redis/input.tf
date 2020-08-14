@@ -1,12 +1,12 @@
 variable "name" {
-	type = string
+  type = string
 }
 
 variable "project" {
 }
 
 variable "region" {
-	type = string
+  type = string
 }
 
 variable "network" {

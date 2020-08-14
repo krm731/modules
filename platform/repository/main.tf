@@ -1,18 +1,19 @@
 resource "google_pubsub_topic" "topic" {
-	project = var.project.project_id
+  project = var.project.project_id
   name    = var.topic
 }
 
 resource "google_sourcerepo_repository" "repository" {
   project = var.project.project_id
   name    = var.name
+
   pubsub_configs {
-      topic = google_pubsub_topic.topic.id
-      message_format = "JSON"
-      service_account_email = var.service_account.email
+    topic                 = google_pubsub_topic.topic.id
+    message_format        = "JSON"
+    service_account_email = var.service_account.email
   }
 
-	depends_on = [var.module_depends_on]
+  depends_on = [var.module_depends_on]
 }
 
 resource "google_sourcerepo_repository_iam_binding" "bindings" {
