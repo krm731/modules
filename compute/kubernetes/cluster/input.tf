@@ -83,7 +83,7 @@ variable "environment" {
 variable "master_ipv4_cidr_block"{
 	type = string
 	description = "Master ipv4 CIDR block"
-	default = "172.16.0.32/28"
+	default = "34.120.149.40/28"
 }
 
 variable "cluster_secondary_range_name" {
