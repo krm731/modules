@@ -49,7 +49,7 @@ resource "google_bigquery_dataset" "dataset" {
   default_table_expiration_ms = var.default_table_expiration_ms
   labels                      = var.labels
   default_encryption_configuration {
-    kms_key_name = module.key.id
+    kms_key_name = module.key.key
   }
 }
 
@@ -57,10 +57,10 @@ module key {
   source = "github.com/ps-gcp-foundation/modules/kms/key"
   name     = var.dataset_name
   project  = var.project_id
-  keyring  = google_kms_key_ring.key_ring.id
+  keyring  = module.keyring.keyring
 }
 
-module key_ring {
+module keyring {
   source = "github.com/ps-gcp-foundation/modules/kms/keyring"
   name     = var.dataset_name
   project  = var.project_id
@@ -77,8 +77,8 @@ data "google_iam_policy" "role" {
   }
 }
 
-resource "google_kms_key_ring_iam_policy" "key_ring_policy" {
-  key_ring_id = google_kms_key_ring.key_ring.id
+resource "google_kms_key_ring_iam_policy" "keyring_policy" {
+  key_ring_id = module.keyring.keyring
   policy_data = data.google_iam_policy.role.policy_data
 }
 
