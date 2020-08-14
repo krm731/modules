@@ -57,7 +57,7 @@ module key {
   source = "github.com/ps-gcp-foundation/modules/kms/key"
   name     = var.dataset_name
   project  = var.project_id
-  key_ring = google_kms_key_ring.key_ring.id
+  keyring  = google_kms_key_ring.key_ring.id
 }
 
 module key_ring {
