@@ -22,9 +22,9 @@ resource "kubernetes_service_account" "spinnaker" {
 
 #Cluster role binding
 resource "kubernetes_cluster_role_binding" "example" {
-  depends_on = [ kubernetes_service_account.spinnaker ]
+  depends_on = [kubernetes_service_account.spinnaker]
   metadata {
-    name      = var.namespace
+    name = var.namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
@@ -68,7 +68,7 @@ data "template_file" "deploy_spinnaker" {
 
 # Configure kubectl to use spinnaker service account
 resource "null_resource" "deploy_spinnaker" {
-  depends_on = [kubernetes_cluster_role_binding.example ]
+  depends_on = [kubernetes_cluster_role_binding.example]
 
   provisioner "local-exec" {
     command = data.template_file.deploy_spinnaker.rendered
