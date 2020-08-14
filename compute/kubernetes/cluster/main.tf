@@ -22,7 +22,7 @@ resource "google_container_cluster" "cluster" {
   # network traffic permission. Remove IP range block and provide Ingress resource here. 
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block   = "${var.master_ipv4_cidr_block}"
+      cidr_block   = "${var.master_auth_cidr_block}"
       display_name = "testing"
     }
   }
