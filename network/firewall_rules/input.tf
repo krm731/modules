@@ -56,7 +56,7 @@ variable "allow_egress" {
   }))
   default = {}
 }
- variable "deny_egress" {
+variable "deny_egress" {
   description = "List of rules to deny egress"
   type = map(object({
     description          = string

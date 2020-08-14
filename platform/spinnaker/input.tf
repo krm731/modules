@@ -4,16 +4,16 @@ variable "project" {
 
 variable "spinnaker_version" {
   description = "The version of spinnaker deployed"
-	type        = string
+  type        = string
   default     = "1.19.12"
 }
 
 variable "storage_bucket" {
-	description = "The storage bucket for the spinnaker instance"
+  description = "The storage bucket for the spinnaker instance"
 }
 
 variable "service_account_key" {
-	description = "The google service account key for this spinnaker instance"
+  description = "The google service account key for this spinnaker instance"
 }
 
 variable "namespace" {

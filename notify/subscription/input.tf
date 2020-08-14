@@ -1,11 +1,11 @@
 variable "name" {
-	type = string
+  type = string
 }
 
 variable "project" {
-	
+
 }
 
 variable "topic" {
-	
+
 }

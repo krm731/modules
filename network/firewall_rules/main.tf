@@ -16,7 +16,7 @@ resource "google_compute_firewall" "allow_ingress" {
   log_config {
     metadata = "INCLUDE_ALL_METADATA"
   }
-  
+
   dynamic "allow" {
     for_each = each.value.rules
     iterator = rule
@@ -34,7 +34,7 @@ resource "google_compute_firewall" "deny_ingress" {
   direction               = "INGRESS"
   network                 = var.network.self_link
   project                 = var.project.project_id
-  source_ranges           = each.value.ranges 
+  source_ranges           = each.value.ranges
   source_tags             = each.value.use_service_accounts ? null : each.value.sources
   source_service_accounts = each.value.use_service_accounts ? each.value.sources : null
   target_tags             = each.value.use_service_accounts ? null : each.value.targets
