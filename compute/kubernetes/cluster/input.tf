@@ -83,6 +83,12 @@ variable "environment" {
 variable "master_ipv4_cidr_block"{
 	type = string
 	description = "Master ipv4 CIDR block"
+	default = "172.16.0.32/28"
+}
+
+variable "master_auth_cidr_block"{
+	type = string
+	description = "Master ipv4 CIDR block"
 	default = "34.120.149.40/28"
 }
 
