@@ -1,5 +1,6 @@
 variable "project" {
   description = "The project to create the keyring in"
+  type        = string
 }
 
 variable "name" {
