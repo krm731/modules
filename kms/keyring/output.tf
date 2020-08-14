@@ -3,5 +3,5 @@ output "keyring" {
 }
 
 output "id" {
-  value = google_kms_key_ring.id
+  value = google_kms_key_ring.keyring.id
 }
