@@ -49,7 +49,7 @@ resource "google_bigquery_dataset" "dataset" {
   default_table_expiration_ms = var.default_table_expiration_ms
   labels                      = var.labels
   default_encryption_configuration {
-    kms_key_name = module.key.key
+    kms_key_name = module.key.name
   }
 }
 
