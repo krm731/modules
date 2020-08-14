@@ -48,36 +48,6 @@ resource "google_bigquery_dataset" "dataset" {
   delete_contents_on_destroy  = var.delete_contents_on_destroy
   default_table_expiration_ms = var.default_table_expiration_ms
   labels                      = var.labels
-  default_encryption_configuration {
-    kms_key_name = module.key.name
-  }
-}
-
-module key {
-  source = "github.com/ps-gcp-foundation/modules/kms/key"
-  name     = var.dataset_name
-  keyring  = module.keyring.keyring
-}
-
-module keyring {
-  source = "github.com/ps-gcp-foundation/modules/kms/keyring"
-  name     = var.dataset_name
-  location = "europe"
-}
-
-data "google_iam_policy" "role" {
-  binding {
-    role = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
-
-    members = [
-      "serviceAccount:bq-${var.project_number}@bigquery-encryption.iam.gserviceaccount.com",
-    ]
-  }
-}
-
-resource "google_kms_key_ring_iam_policy" "keyring_policy" {
-  key_ring_id = module.keyring.id
-  policy_data = data.google_iam_policy.role.policy_data
 }
 
 #--------------------------------#

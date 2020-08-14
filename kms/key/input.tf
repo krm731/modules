@@ -1,3 +1,7 @@
+variable "project" {
+  description = "The project that the key belongs to"
+}
+
 variable "keyring" {
   description = "The keyring to create the key in"
 }
