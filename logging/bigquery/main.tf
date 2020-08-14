@@ -56,14 +56,12 @@ resource "google_bigquery_dataset" "dataset" {
 module key {
   source = "github.com/ps-gcp-foundation/modules/kms/key"
   name     = var.dataset_name
-  project  = var.project_id
   keyring  = module.keyring.keyring
 }
 
 module keyring {
   source = "github.com/ps-gcp-foundation/modules/kms/keyring"
   name     = var.dataset_name
-  project  = var.project_id
   location = "europe"
 }
 
