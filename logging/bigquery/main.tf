@@ -78,7 +78,7 @@ data "google_iam_policy" "role" {
 }
 
 resource "google_kms_key_ring_iam_policy" "keyring_policy" {
-  key_ring_id = module.keyring.keyring
+  key_ring_id = module.keyring.id
   policy_data = data.google_iam_policy.role.policy_data
 }
 
