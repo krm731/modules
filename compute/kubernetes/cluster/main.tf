@@ -40,7 +40,7 @@ resource "google_container_cluster" "cluster" {
   # We can optionally control access to the cluster
   # See https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters
   private_cluster_config {
-    enable_private_endpoint = "${var.isprivatecluster ? true : false }"
+    enable_private_endpoint = false
     enable_private_nodes    = "${var.isprivatecluster ? true : false }"
     master_ipv4_cidr_block  = "${var.isprivatecluster ? var.master_ipv4_cidr_block : null }"
   }
