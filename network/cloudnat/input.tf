@@ -51,7 +51,7 @@ variable "config_timeouts" {
 variable "logging_filter" {
   description = "Enables logging if not null, value is one of 'ERRORS_ONLY', 'TRANSLATIONS_ONLY', 'ALL'."
   type        = string
-  default     = ALL
+  default     = "ALL"
 }
 
 variable "name" {
