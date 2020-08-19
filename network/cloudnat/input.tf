@@ -29,7 +29,7 @@ variable "config_min_ports_per_vm" {
 variable "config_source_subnets" {
   description = "Subnetwork configuration (ALL_SUBNETWORKS_ALL_IP_RANGES, ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, LIST_OF_SUBNETWORKS)."
   type        = string
-  default     = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  default     = "LIST_OF_SUBNETWORKS"
 }
 
 variable "config_timeouts" {
@@ -51,7 +51,7 @@ variable "config_timeouts" {
 variable "logging_filter" {
   description = "Enables logging if not null, value is one of 'ERRORS_ONLY', 'TRANSLATIONS_ONLY', 'ALL'."
   type        = string
-  default     = null
+  default     = "ALL"
 }
 
 variable "name" {
@@ -72,8 +72,7 @@ variable "region" {
 variable "router_asn" {
   description = "Router ASN used for auto-created router."
   type        = number
-  //default     = 64514
-  default = 64515
+  default     = 64514
 }
 
 variable "router_create" {

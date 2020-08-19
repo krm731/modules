@@ -29,11 +29,6 @@ variable "project_id" {
   type        = string
 }
 
-variable "project_number" {
-  description = "The number of the project in which the bigquery dataset will be created."
-  type        = number
-}
-
 variable "location" {
   description = "The location of the storage bucket."
   type        = string
