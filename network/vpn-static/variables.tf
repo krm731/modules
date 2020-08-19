@@ -33,7 +33,6 @@ variable "name" {
 
 variable "network" {
   description = "VPC used for the gateway and routes."
-  type        = string
 }
 
 variable "project" {
