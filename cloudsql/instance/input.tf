@@ -41,3 +41,15 @@ variable "password" {
   default     = "admin"
 }
 
+variable "classification" {
+  description = "Classification of database"
+  type        = string
+  default     = "highly confidential"
+}
+
+variable "owner" {
+  description = "Database Owner"
+  type        = string
+  default     = ""
+}
+
