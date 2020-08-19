@@ -36,8 +36,3 @@ variable "protection_level" {
   default     = "HSM"
 }
 
-variable "allow_destroy" {
-  description = "Allow destruction of the resource"
-  type = bool
-  default = false
-}
