@@ -36,9 +36,8 @@ variable "network" {
   type        = string
 }
 
-variable "project_id" {
+variable "project" {
   description = "Project where resources will be created."
-  type        = string
 }
 
 variable "region" {
