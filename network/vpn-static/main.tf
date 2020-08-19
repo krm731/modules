@@ -69,7 +69,7 @@ resource "google_compute_route" "route" {
   for_each            = local.route_pairs
   name                = "vpn-${var.name}-${each.key}"
   project             = var.project.project_id
-  network             = var.network
+  network             = var.network.self_link
   dest_range          = each.value.range
   priority            = var.route_priority
   next_hop_vpn_tunnel = google_compute_vpn_tunnel.tunnels[each.value.tunnel].self_link
@@ -79,7 +79,7 @@ resource "google_compute_vpn_gateway" "gateway" {
   name    = var.name
   project = var.project.project_id
   region  = var.region
-  network = var.network
+  network = var.network.self_link
 }
 
 resource "google_compute_vpn_tunnel" "tunnels" {
