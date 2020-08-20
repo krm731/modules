@@ -14,7 +14,7 @@ IP / URL Filtering | The design must provide the ability to restrict outbound co
 
 ## Egress Design
 
-![CAP Egress design](Images/cap_egress.jpg)
+![CAP Egress design](images/cap_egress.jpg)
 
 
 

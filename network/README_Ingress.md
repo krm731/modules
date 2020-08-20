@@ -17,7 +17,7 @@ Enforce TLS based communication | The system should have the ability to enforce 
 
 ## Ingress Design
 
-![CAP ingress design](Images/cap_ingress.jpg)
+![CAP ingress design](images/cap_ingress.jpg)
 
 
 
