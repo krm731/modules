@@ -26,6 +26,14 @@ locals {
   ])
 }
 
+locals {
+  common_labels = {    
+    "owner"                             =  var.owner
+    "cost_centre"                              =  var.cost_centre
+    "dataclassification"                      =  var.dataclassification     
+  }
+}
+
 resource "google_storage_bucket" "buckets" {
   count         = length(var.names)
   name          = "${local.prefix}${lower(element(var.names, count.index))}"
