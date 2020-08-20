@@ -2,6 +2,8 @@
 
 The ingress design for CAP is based on the below mentioned considerations
 
+
+
 Consideration | Description
 ------------- | -----------
 Filter inbound internet based traffic | The system should have the ability to selectively allow / disallow internet based inbound traffic
@@ -11,9 +13,13 @@ Protection against DNS Data Exfilteration | The system should have the ability t
 Protection against Data Exfilteration | The system should have the ability to protect against data exfilteration
 Enforce TLS based communication | The system should have the ability to enforce TLS based communication based on a specific TLS version
 
+
+
 ## Ingress Design
 
 ![CAP ingress design](Images/cap_ingress.jpg)
+
+
 
 ### Ingress Design Explained
 
