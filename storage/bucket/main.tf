@@ -29,8 +29,8 @@ locals {
 locals {
   common_labels = {    
     "owner"                             =  var.owner
-    "cost_centre"                              =  var.cost_centre
-    "dataclassification"                      =  var.dataclassification     
+    "cost_centre"                       =  var.cost_centre
+    "dataclassification"                =  var.dataclassification     
   }
 }
 
@@ -40,7 +40,7 @@ resource "google_storage_bucket" "buckets" {
   project       = var.project_id
   location      = var.region
   storage_class = var.storage_class
-  labels        = merge(var.labels, { name = replace("${local.prefix}${lower(element(var.names, count.index))}", ".", "-") })
+  labels        = var.common_labels
   force_destroy = lookup(
     var.force_destroy,
     lower(element(var.names, count.index)),
