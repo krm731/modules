@@ -172,3 +172,20 @@ variable "logging" {
   })
   default = null
 }
+
+
+variable "owner" {
+  description = "Owner of the Bucket."
+  type        = string
+}
+
+
+variable "cost_centre" {
+  description = "Cost_Centre of the  Bucket."
+  type        = string
+}
+
+variable "dataclassification" {
+  description = "Data_Classification of the  Bucket."
+  type        = string
+}
