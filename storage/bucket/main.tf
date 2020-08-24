@@ -58,6 +58,7 @@ resource "google_storage_bucket" "buckets" {
       true,
     )
   }
+ 
   # Having a permanent encryption block with default_kms_key_name = "" works but results in terraform applying a change every run
   # There is no enabled = false attribute available to ask terraform to ignore the block
   dynamic "encryption" {
@@ -118,6 +119,14 @@ resource "google_storage_bucket" "buckets" {
   }
 
 }
+
+ dynamic "retention_policy" {
+    for_each = var.retention_policy_retention_period == "" ? [] : [1]
+    content {
+      is_locked        = var.retention_policy_is_locked
+      retention_period = var.retention_policy_retention_period
+    }
+  }
 
 resource "google_storage_bucket_iam_binding" "admins" {
   count  = var.set_admin_roles ? length(var.names) : 0
