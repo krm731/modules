@@ -174,14 +174,15 @@ variable "logging" {
 }
 
 
-variable "retention_policy_is_locked" {
+variable "retention_policy" {
+  type = map
   description = "If set to true, the bucket will be locked and any changes to the bucket's retention policy will be permanently restricted. Caution - Locking a bucket is an irreversible action."
-  default     = "false"
+  default     = {
+    "is_locked" = {}
+    "retention_period" = {}
+  }
 }
-variable "retention_policy_retention_period" {
-  description = "The period of time, in seconds, that objects in the bucket must be retained and cannot be deleted, overwritten, or archived. The value must be less than 2,147,483,647 seconds. If this is supplied then a bucket retention policy will be created."
-  default     = ""
-}
+
 
 variable "owner" {
   description = "Owner of the Bucket."
